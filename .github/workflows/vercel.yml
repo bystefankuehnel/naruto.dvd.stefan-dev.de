@@ -36,6 +36,6 @@ jobs:
             --branch main \
             --metadata metadata.json \
             --token $VERCEL_TOKEN \
-            --project naruto-shippuden-datasette-stefan-dev-de
+            --project naruto-shippuden-datasette-stefan-dev-de \
             --install datasette-graphql \
             --public
