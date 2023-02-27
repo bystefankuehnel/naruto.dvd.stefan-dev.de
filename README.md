@@ -13,8 +13,8 @@ You'll need [Datasette](https://datasette.io/) and [Python](https://python.org) 
 First of all, you need to clone the repository:
 
 ```bash
-$ git clone https://github.com/bystefankuehnel/naruto-shippuden.datasette.stefan-dev.de.git
-$ cd naruto-shippuden.datasette.stefan-dev.de
+$ git clone https://github.com/bystefankuehnel/naruto.dvd.stefan-dev.de.git
+$ cd naruto.dvd.stefan-dev.de
 ```
 
 ### Install PIP Dependencies
@@ -32,7 +32,7 @@ $ curl \
     --show-error \
     --location \
     --output emissions.db \
-    https://naruto-shippuden.datasette.stefan-dev.de/collection.db
+    https://naruto.dvd.stefan-dev.de/collection.db
 ```
 
 ### Run Datasette
