@@ -1,4 +1,4 @@
-# naruto-shippuden.datasette.stefan-dev.de
+# naruto.dvd.stefan-dev.de
 
 [![Vercel](../../actions/workflows/vercel.yml/badge.svg)](../../actions/workflows/vercel.yml)
 
