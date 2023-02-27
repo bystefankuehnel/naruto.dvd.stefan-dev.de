@@ -2,7 +2,7 @@
 
 [![Vercel](../../actions/workflows/vercel.yml/badge.svg)](../../actions/workflows/vercel.yml)
 
-Datasette showing my Naruto Shippuden DvD collection.
+Datasette showing my Naruto Shippuden DVD collection.
  
 ## ⚙️ Get Started
 
