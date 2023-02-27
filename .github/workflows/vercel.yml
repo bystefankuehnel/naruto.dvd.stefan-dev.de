@@ -1,0 +1,41 @@
+name: Vercel
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Python
+        id: python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Convert Excel to CSV
+        run: |-
+          in2csv collection.xlsx \
+            --sheet Collection \
+            > collection.csv
+      - name: Create SQLite Database
+        run: |-
+          csvs-to-sqlite \
+            collection.csv \
+            collection.db
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |-
+          datasette publish vercel collection.db \
+            --branch main \
+            --metadata metadata.json \
+            --token $VERCEL_TOKEN \
+            --project naruto-shippuden-datasette-stefan-dev-de
+            --install datasette-graphql \
+            --public
