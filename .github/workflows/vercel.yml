@@ -3,7 +3,7 @@ name: Vercel
 on:
   push:
   workflow_dispatch:
-  
+
 jobs:
   deployment:
     runs-on: ubuntu-latest
@@ -14,7 +14,7 @@ jobs:
         id: python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
@@ -42,3 +42,17 @@ jobs:
             --project naruto-shippuden-datasette-stefan-dev-de \
             --install datasette-graphql \
             --public
+      - name: Delete Previous Release
+        continue-on-error: true
+        run: gh release delete latest --cleanup-tag --yes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        run: |-
+          gh release create latest \
+            --latest \
+            --title "Release" \
+            --notes "**Version**: $(date +"%Y%m%d")-git-${GITHUB_SHA:0:7}" \
+            "/excel.xlsx"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
