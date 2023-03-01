@@ -19,7 +19,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Download Excel SpreedSheet
-        run: curl -o excel.xslx https://docs.google.com/spreadsheets/d/1by2mZB4-ixVfRAu-_mcRxyQEJGuSfbzPkh-AlrUPCLY/export?format=xlsx
+        run: curl -o excel.xlsx https://docs.google.com/spreadsheets/d/1by2mZB4-ixVfRAu-_mcRxyQEJGuSfbzPkh-AlrUPCLY/export?format=xlsx
       - name: Convert Excel to CSV
         run: |-
           in2csv excel.xlsx \
