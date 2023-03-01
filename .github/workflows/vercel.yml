@@ -20,11 +20,8 @@ jobs:
           pip install -r requirements.txt
       - name: Download Excel SpreedSheet
         run: curl -Lo excel.xlsx https://docs.google.com/spreadsheets/d/1by2mZB4-ixVfRAu-_mcRxyQEJGuSfbzPkh-AlrUPCLY/export?format=xlsx
-      - name: Convert Excel to CSV
-        run: |-
-          in2csv excel.xlsx \
-            --sheet Collection \
-            > collection.csv
+      - name: Download CSV
+        run: curl -Lo collection.csv https://docs.google.com/spreadsheets/d/1by2mZB4-ixVfRAu-_mcRxyQEJGuSfbzPkh-AlrUPCLY/export?format=csv
       - name: Create SQLite Database
         run: |-
           csvs-to-sqlite \
