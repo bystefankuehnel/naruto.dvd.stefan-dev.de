@@ -1,7 +1,6 @@
 name: Vercel
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
