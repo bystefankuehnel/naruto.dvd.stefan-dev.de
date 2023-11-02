@@ -1,4 +1,4 @@
 datasette>=0.57
 datasette-graphql
 datasette-publish-vercel
-csvs-to-sqlite
+sqlite-utils==3.35.1
