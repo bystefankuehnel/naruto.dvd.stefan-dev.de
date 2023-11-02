@@ -2,4 +2,3 @@ datasette>=0.57
 datasette-graphql
 datasette-publish-vercel
 csvs-to-sqlite
-csvkit
