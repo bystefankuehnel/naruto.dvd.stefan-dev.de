@@ -34,6 +34,7 @@ jobs:
             --token $VERCEL_TOKEN \
             --project naruto-shippuden-datasette-stefan-dev-de \
             --install datasette-graphql \
+            --install datasette-render-image-tags \
             --public
       - name: Delete Previous Release
         continue-on-error: true
