@@ -31,7 +31,7 @@ $ curl \
     --silent \
     --show-error \
     --location \
-    --output emissions.db \
+    --output collection.db \
     https://naruto.dvd.stefan-dev.de/collection.db
 ```
 
