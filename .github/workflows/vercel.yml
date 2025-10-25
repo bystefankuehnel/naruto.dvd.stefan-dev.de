@@ -25,6 +25,14 @@ jobs:
         run: curl -Lo collection.csv https://docs.google.com/spreadsheets/d/1by2mZB4-ixVfRAu-_mcRxyQEJGuSfbzPkh-AlrUPCLY/export?format=csv
       - name: Create SQLite Database
         run: sqlite-utils insert collection.db collection collection.csv --csv
+      - name: Generate 'vercel.json'
+        run: |
+          datasette publish vercel collection.db \
+            --project naruto-shippuden-datasette-stefan-dev-de \
+            --metadata metadata.json \
+            --generate-vercel-json > vercel.json
+
+          sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@5.0.10/g' vercel.json
       - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -35,6 +43,7 @@ jobs:
             --token $VERCEL_TOKEN \
             --project naruto-shippuden-datasette-stefan-dev-de \
             --install datasette-render-image-tags \
+            --vercel-json vercel.json \
             --public
       - name: Delete Previous Release
         continue-on-error: true
