@@ -1,86 +1,90 @@
-# naruto.dvd.stefan-dev.de
+# Naruto Shippuden DVD Collection
 
-[![Vercel](../../actions/workflows/vercel.yml/badge.svg)](../../actions/workflows/vercel.yml)
+[![GitHub Pages](../../actions/workflows/github-pages.yaml/badge.svg)](../../actions/workflows/github-pages.yaml)
 
 Datasette showing my Naruto Shippuden DVD collection.
- 
-## ⚙️ Get Started
 
-You'll need [Datasette](https://datasette.io/) and [Python](https://python.org) installed.
+## ⚙️ Getting Started
 
-### Clone Repository
+To begin, ensure your system has the following prerequisites installed:
 
-First of all, you need to clone the repository:
+- **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
+- **Visual Studio Code (VS Code)**: [Download VS Code](https://code.visualstudio.com/)
+- **Dev Containers Extension**: Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-```bash
-$ git clone https://github.com/bystefankuehnel/naruto.dvd.stefan-dev.de.git
-$ cd naruto.dvd.stefan-dev.de
-```
+### Clone the Repository
 
-### Install PIP Dependencies
+Clone the repository from GitHub:
 
 ```bash
-$ python -m pip install --upgrade pip
-$ pip install -r requirements.txt
+git clone https://github.com/bystefankuehnel/naruto.dvd.stefan-dev.de.git
 ```
 
-### Download SQLite Database
+### Verify Docker is Running
+
+Make sure Docker is running on your machine. You can verify this by opening a terminal and running:
 
 ```bash
-$ curl \
-    --silent \
-    --show-error \
-    --location \
-    --output collection.db \
-    https://naruto.dvd.stefan-dev.de/collection.db
+docker --version
 ```
 
-### Run Datasette
+> [!NOTE]
+> If Docker is not running, start the Docker or Docker Desktop application on your computer.
+
+### Open the Repository
+
+Then open the cloned repository in **Visual Studio Code**.
 
 ```bash
-$ datasette collection.db \
-    --metadata metadata.json \
-    --open
+code naruto.dvd.stefan-dev.de
 ```
 
-It will listen on [http://127.0.0.1:8001](http://127.0.0.1:8001) unless otherwise configured.
+### Reopen in Container
 
-## 🔨 Technology
+When prompted, click **Reopen in Container**. VS Code will build the container and drop you into a fully configured containerized development environment.
 
-The following technologies, tools and platforms were used during development.
+## 💻 Commands
 
-- **Code**: [Python](https://www.python.org)
-- **Database**: [SQLite](https://sqlite.org)
-- **Deployment**: [Vercel](https://vercel.com)
+Once inside the development container, you can use the following commands:
 
-## 👷‍ Error Found?
+## Dev
+
+To start the development server with hot-reloading:
+
+```bash
+bun run dev
+```
+
+## Build
+
+To build the project for production:
+
+```bash
+bun run build
+```
+
+## Preview
+
+To preview the built project:
+
+```bash
+bun run build
+bun run preview
+```
+
+## 📖 Documentation
+
+Below you will find a list of documentation for tools used in this project.
+
+- **Datasette Lite**: An Open Source Multi-Tool for Exploring and Publishing Data - [Docs](https://docs.datasette.io/en/stable/)
+- **Nix**: Nix Package Manager - [Docs](https://wiki.nixos.org/wiki/Nix)
+- **Nix Flakes**: An Experimental Feature for Managing Dependencies of Nix Projects - [Docs](https://wiki.nixos.org/wiki/Flakes)
+- **GitHub Actions**: Automation and Execution of Software Development Workflows - [Docs](https://docs.github.com/en/actions)
+
+## 🐛 Found a Bug?
 
 Thank you for your message! Please fill out a [bug report](../../issues/new?assignees=&labels=&template=bug_report.md&title=).
 
-## License
+## 📖 License
 
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
-
-```
-The MIT License (MIT)
-
-Copyright © 2023 Stefan Kühnel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-```
+This project is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.txt).
