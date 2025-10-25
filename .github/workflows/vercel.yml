@@ -32,6 +32,8 @@ jobs:
             --metadata metadata.json \
             --generate-vercel-json > vercel.json
 
+          cat vercel.json | jq
+
           sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@5.0.10/g' vercel.json
       - name: Deploy to Vercel
         env:
